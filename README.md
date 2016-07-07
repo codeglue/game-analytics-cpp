@@ -14,14 +14,14 @@ This project contains working code for Universal Windows Platform projects as we
 - Secure https connection
 
 ## Dependencies
-This project comes bundled with all its dependencies so it should work out of the box by opening the solution file.
+This project comes bundled with all its dependencies, so it should work out of the box by opening the solution file.
 - [JSON](https://github.com/open-source-parsers/jsoncpp)
 - [SQLite](https://www.sqlite.org/)
 - [Crypto++](https://www.cryptopp.com/) (for non-UWP)
 - [libCurl](https://curl.haxx.se/libcurl/) (for non-UWP)
 
 ## Usage
-Add all projects in `GameAnalytics.sln` to your own solution and add `GameAnalytics` as a dependency to your project.
+Add all projects from `GameAnalytics.sln` to your own solution and add `GameAnalytics` or `GameAnalytics_UWP` (for UWP projects) as a dependency to your project.
 
 ### Initializing
 Create an instance of the `GameAnalytics` class and pass along your game's secret key and game key which are provided by [GameAnalytics](http://www.gameanalytics.com/). Then call `Init` on the class and pass along an `InitData` struct with contains the current build name of your application, a user identifier which is unique for each user (eg. a Steam ID), and the filename of the database where all events will be cached (eg. `stats.db`). You might also want to immediately send the session start event when your application starts. The session start event has to be sent before any other events can be sent.
