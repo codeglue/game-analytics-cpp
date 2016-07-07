@@ -3,7 +3,7 @@ The purpose of this project is to add a [GameAnalytics](http://www.gameanalytics
 
 Game Analytics C++ uses GameAnalytics' REST API based on documentation provided here: [Collector REST API Reference](http://restapidocs.gameanalytics.com/)
 
-This project contains working code for Universal Windows Platform projects as well as standalone C++ projects so it can be integrated in eg. Steam games.
+This project contains working code for Universal Windows Platform (Windows 10, Windows Phone 10) projects as well as standalone C++ projects so it can be integrated in eg. Steam games.
 
 ## Features
 - Session events
@@ -98,3 +98,5 @@ void OnQuit()
 # References
 - http://www.gameanalytics.com/docs/ga-data
 - http://restapidocs.gameanalytics.com/
+- http://jasonericson.blogspot.nl/2013/03/game-analytics-in-c.html
+- https://github.com/npruehs/game-analytics-win10
