@@ -25,7 +25,7 @@ Add all projects from `GameAnalytics.sln` to your own solution and add `GameAnal
 
 ### Initializing
 Create an instance of the `GameAnalytics` class and pass along your game's secret key and game key which are provided by [GameAnalytics](http://www.gameanalytics.com/). Then call `Init` on the class and pass along an `InitData` struct with contains the current build name of your application, a user identifier which is unique for each user (eg. a Steam ID), and the filename of the database where all events will be cached (eg. `stats.db`). You might also want to immediately send the session start event when your application starts. The session start event has to be sent before any other events can be sent.
-```
+```C++
 void InitGame()
 {
 	gameAnalytics = new Analytics::GameAnalytics(SecretKey, GameKey);
@@ -40,7 +40,7 @@ void InitGame()
 
 ### Updating
 The `GameAnalytics` instance needs to be continuously updated in order for it to send cached events to the GameAnalytics REST interface. In a game you would generally call it every game tick, and pass along the time since last update in seconds.
-```
+```C++
 void GameLoopUpdate(float deltaTime)
 {
   gameAnalytics->Update(deltaTime);
@@ -49,13 +49,13 @@ void GameLoopUpdate(float deltaTime)
 
 ### Deinitializing
 When you're done using GameAnalytics, simply delete the instance and it will wait for all threads to stop
-```
+```C++
 delete gameAnalytics;
 ```
 
 ### Sending design events
 You can send design events with and without a value by using `GameAnalytics::SendDesignEvent()`.
-```
+```C++
 void OnKilledSmurf(int score)
 {
 	gameAnalytics->SendDesignEvent("GamePlay:Kill:AlienSmurf", 10);
@@ -73,7 +73,7 @@ void OnVolumeChanged(bool volumeOn)
 ### Sending progression events
 You can send progression events with a score by using `GameAnalytics::SendProgressionEvent()` and pass a `ProgressionStatus` along such as `Start`, `Fail` and `Complete`.
 Every started progression is stored in a database and the amount of tries is incremented with each `Fail` status. The progression is only removed when a `Complete` status is sent.
-```
+```C++
 void OnLevelStart()
 {
 	gameAnalytics->SendDesignEvent(GameAnalytics::ProgressionStatus::Start, "Campaign:Level1");
