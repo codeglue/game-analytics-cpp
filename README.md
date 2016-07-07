@@ -26,13 +26,16 @@ Add all projects in `GameAnalytics.sln` to your own solution and add `GameAnalyt
 ### Initializing
 Create an instance of the `GameAnalytics` class and pass along your game's secret key and game key which are provided by [GameAnalytics](http://www.gameanalytics.com/). Then call `Init` on the class and pass along an `InitData` struct with contains the current build name of your application, a user identifier which is unique for each user (eg. a Steam ID), and the filename of the database where all events will be cached (eg. `stats.db`). You might also want to immediately send the session start event when your application starts. The session start event has to be sent before any other events can be sent.
 ```
-gameAnalytics = new Analytics::GameAnalytics(SecretKey, GameKey);
-Analytics::GameAnalytics::InitData initData;
-initData.buidName = "v1.0.0"
-initData.userId = GetUserID();
-initData.databaseFileName = "stats.db";
-gameAnalytics->Init(initData);
-gameAnalytics->SendSessionStartEvent();
+void InitGame()
+{
+	gameAnalytics = new Analytics::GameAnalytics(SecretKey, GameKey);
+	Analytics::GameAnalytics::InitData initData;
+	initData.buidName = "v1.0.0"
+	initData.userId = GetUserID();
+	initData.databaseFileName = "stats.db";
+	gameAnalytics->Init(initData);
+	gameAnalytics->SendSessionStartEvent();
+}
 ```
 
 ### Updating
@@ -53,8 +56,43 @@ delete gameAnalytics;
 ### Sending design events
 You can send design events with and without a value by using `GameAnalytics::SendDesignEvent()`.
 ```
-gameAnalytics->SendDesignEvent("GamePlay:Kill:AlienSmurf", 10);
-gameAnalytics->SendDesignEvent("GuiClick:Volume:On");
+void OnKilledSmurf(int score)
+{
+	gameAnalytics->SendDesignEvent("GamePlay:Kill:AlienSmurf", 10);
+}
+
+void OnVolumeChanged(bool volumeOn)
+{
+	if (volumeOn)
+		gameAnalytics->SendDesignEvent("GuiClick:Volume:On");
+	else
+		gameAnalytics->SendDesignEvent("GuiClick:Volume:Off");
+}
+```
+
+### Sending progression events
+You can send progression events with a score by using `GameAnalytics::SendProgressionEvent()` and pass a `ProgressionStatus` along such as `Start`, `Fail` and `Complete`.
+Every started progression is stored in a database and the amount of tries is incremented with each `Fail` status. The progression is only removed when a `Complete` status is sent.
+```
+void OnLevelStart()
+{
+	gameAnalytics->SendDesignEvent(GameAnalytics::ProgressionStatus::Start, "Campaign:Level1");
+}
+
+void OnLevelCompleted()
+{
+	gameAnalytics->SendDesignEvent(GameAnalytics::ProgressionStatus::Complete, "Campaign:Level1");
+}
+
+void OnDeath()
+{
+	gameAnalytics->SendDesignEvent(GameAnalytics::ProgressionStatus::Fail, "Campaign:Level1");
+}
+
+void OnQuit()
+{
+	gameAnalytics->SendDesignEvent(GameAnalytics::ProgressionStatus::Fail, "Campaign:Level1");
+}
 ```
 
 # References
