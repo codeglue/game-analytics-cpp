@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{FA9A7CCA-703C-4C1D-ACAC-7FF321526461}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameAnalyticsDatabase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)json\json.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)sqlite\sqlite3.c">
+      <CompileAsWinRT>false</CompileAsWinRT>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameAnalytics.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SystemHelpers.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)WebRequestHandler.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)WebRequestHandlerCurl.cpp">
+      <ExcludedFromBuild>false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)WebRequestHandlerUWP.cpp">
+      <ExcludedFromBuild>false</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameAnalyticsDatabase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameAnalyticsResult.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)json\json.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)sqlite\sqlite3.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)sqlite\sqlite3ext.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameAnalytics.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SystemHelpers.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)WebRequestHandler.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)WebRequestHandlerCurl.h">
+      <ExcludedFromBuild>false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)WebRequestHandlerUWP.h">
+      <ExcludedFromBuild>false</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+</Project>

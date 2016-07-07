@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameAnalytics", "GameAnalytics.vcxproj", "{610B0026-4A79-4607-8303-AEA91E658F84}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedGameAnalytics", "SharedGameAnalytics.vcxitems", "{FA9A7CCA-703C-4C1D-ACAC-7FF321526461}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameAnalytics_UWP", "GameAnalytics-UWP.vcxproj", "{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cryptlib", "cryptopp563\cryptlib.vcxproj", "{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcurl", "curl-7.49.1\projects\Windows\VC14\lib\libcurl.vcxproj", "{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedGameAnalytics.vcxitems*{610b0026-4a79-4607-8303-aea91e658f84}*SharedItemsImports = 4
+		SharedGameAnalytics.vcxitems*{ed6ec0e4-6a60-44ae-a4cf-27e768e643b7}*SharedItemsImports = 4
+		SharedGameAnalytics.vcxitems*{fa9a7cca-703c-4c1d-acac-7ff321526461}*SharedItemsImports = 9
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Debug|ARM.ActiveCfg = Debug|ARM
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Debug|x64.ActiveCfg = Debug|x64
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Debug|x64.Build.0 = Debug|x64
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Debug|x86.ActiveCfg = Debug|Win32
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Debug|x86.Build.0 = Debug|Win32
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Release|ARM.ActiveCfg = Release|ARM
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Release|x64.ActiveCfg = Release|x64
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Release|x64.Build.0 = Release|x64
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Release|x86.ActiveCfg = Release|Win32
+		{610B0026-4A79-4607-8303-AEA91E658F84}.Release|x86.Build.0 = Release|Win32
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Debug|ARM.ActiveCfg = Debug|ARM
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Debug|ARM.Build.0 = Debug|ARM
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Debug|x64.ActiveCfg = Debug|x64
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Debug|x64.Build.0 = Debug|x64
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Debug|x86.ActiveCfg = Debug|Win32
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Debug|x86.Build.0 = Debug|Win32
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Release|ARM.ActiveCfg = Release|ARM
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Release|ARM.Build.0 = Release|ARM
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Release|x64.ActiveCfg = Release|x64
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Release|x64.Build.0 = Release|x64
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Release|x86.ActiveCfg = Release|Win32
+		{ED6EC0E4-6A60-44AE-A4CF-27E768E643B7}.Release|x86.Build.0 = Release|Win32
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Debug|ARM.ActiveCfg = Debug|Win32
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Debug|x64.ActiveCfg = Debug|x64
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Debug|x64.Build.0 = Debug|x64
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Debug|x86.ActiveCfg = Debug|Win32
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Debug|x86.Build.0 = Debug|Win32
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Release|ARM.ActiveCfg = Release|Win32
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Release|x64.ActiveCfg = Release|x64
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Release|x64.Build.0 = Release|x64
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Release|x86.ActiveCfg = Release|Win32
+		{3423EC9A-52E4-4A4D-9753-EDEBC38785EF}.Release|x86.Build.0 = Release|Win32
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Debug|ARM.ActiveCfg = LIB Debug|ARM
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Debug|x64.ActiveCfg = LIB Debug - DLL Windows SSPI|x64
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Debug|x64.Build.0 = LIB Debug - DLL Windows SSPI|x64
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Debug|x86.ActiveCfg = LIB Debug - DLL Windows SSPI|Win32
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Debug|x86.Build.0 = LIB Debug - DLL Windows SSPI|Win32
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Release|ARM.ActiveCfg = LIB Release - LIB OpenSSL - LIB LibSSH2|ARM
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Release|x64.ActiveCfg = LIB Debug - DLL Windows SSPI|x64
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Release|x64.Build.0 = LIB Debug - DLL Windows SSPI|x64
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Release|x86.ActiveCfg = LIB Release - DLL Windows SSPI|Win32
+		{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}.Release|x86.Build.0 = LIB Release - DLL Windows SSPI|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
