@@ -1,1 +1,62 @@
-# game-analytics-cpp
+# Game Analytics C++
+The purpose of this project is to add a [GameAnalytics](http://www.gameanalytics.com/) interface for C++ projects because there is no such project publicly available and functional at this moment.
+
+Game Analytics C++ uses GameAnalytics' REST API based on documentation provided here: [Collector REST API Reference](http://restapidocs.gameanalytics.com/)
+
+This project contains working code for Universal Windows Platform projects as well as standalone C++ projects so it can be integrated in eg. Steam games.
+
+## Features
+- Session events
+- (Custom) Design events
+- Progression events
+- Works when user is offline by caching unsent events
+- Throttling sending of events when too many events are sent
+- Secure https connection
+
+## Dependencies
+This project comes bundled with all its dependencies so it should work out of the box by opening the solution file.
+- JSON
+- SQLite
+- Crypto++ (for non-UWP)
+- libCurl (for non-UWP)
+
+## Usage
+Add all projects in `GameAnalytics.sln` to your own solution and add `GameAnalytics` as a dependency to your project.
+
+### Initializing
+Create an instance of the `GameAnalytics` class and pass along your game's secret key and game key which are provided by [GameAnalytics](http://www.gameanalytics.com/). Then call `Init` on the class and pass along an `InitData` struct with contains the current build name of your application, a user identifier which is unique for each user (eg. a Steam ID), and the filename of the database where all events will be cached (eg. `stats.db`). You might also want to immediately send the session start event when your application starts. The session start event has to be sent before any other events can be sent.
+```
+gameAnalytics = new Analytics::GameAnalytics(SecretKey, GameKey);
+Analytics::GameAnalytics::InitData initData;
+initData.buidName = "v1.0.0"
+initData.userId = GetUserID();
+initData.databaseFileName = "stats.db";
+gameAnalytics->Init(initData);
+gameAnalytics->SendSessionStartEvent();
+```
+
+### Updating
+The `GameAnalytics` instance needs to be continuously updated in order for it to send cached events to the GameAnalytics REST interface. In a game you would generally call it every game tick, and pass along the time since last update in seconds.
+```
+void GameLoopUpdate(float deltaTime)
+{
+  gameAnalytics->Update(deltaTime);
+}
+```
+
+### Deinitializing
+When you're done using GameAnalytics, simply delete the instance and it will wait for all threads to stop
+```
+delete gameAnalytics;
+```
+
+### Sending design events
+You can send design events with and without a value by using `GameAnalytics::SendDesignEvent()`.
+```
+gameAnalytics->SendDesignEvent("GamePlay:Kill:AlienSmurf", 10);
+gameAnalytics->SendDesignEvent("GuiClick:Volume:On");
+```
+
+# References
+- http://www.gameanalytics.com/docs/ga-data
+- http://restapidocs.gameanalytics.com/
