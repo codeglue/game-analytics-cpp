@@ -15,10 +15,10 @@ This project contains working code for Universal Windows Platform projects as we
 
 ## Dependencies
 This project comes bundled with all its dependencies so it should work out of the box by opening the solution file.
-- JSON
-- SQLite
-- Crypto++ (for non-UWP)
-- libCurl (for non-UWP)
+- [JSON](https://github.com/open-source-parsers/jsoncpp)
+- [SQLite](https://www.sqlite.org/)
+- [Crypto++](https://www.cryptopp.com/) (for non-UWP)
+- [libCurl](https://curl.haxx.se/libcurl/) (for non-UWP)
 
 ## Usage
 Add all projects in `GameAnalytics.sln` to your own solution and add `GameAnalytics` as a dependency to your project.
