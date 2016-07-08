@@ -5,6 +5,13 @@ Game Analytics C++ uses GameAnalytics' REST API based on documentation provided 
 
 This project contains working code for Universal Windows Platform (Windows 10, Windows Phone 10) projects as well as standalone C++ projects so it can be integrated in eg. Steam games.
 
+## Supported platforms
+Right now this project works on these platforms
+- Any 32-bit C++ Windows program (eg. to release on Steam)
+- Windows 10 Store Apps (Universal Windows Platform)
+ - Desktop
+ - Mobile (ARM)
+
 ## Features
 - Session events
 - (Custom) Design events
